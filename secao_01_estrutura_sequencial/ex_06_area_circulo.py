@@ -1,3 +1,4 @@
+from math import pi
 """
 Exercício 06 da seção de estrutura sequencial da Python Brasil:
 https://wiki.python.org.br/EstruturaSequencial
@@ -19,5 +20,5 @@ Observação: Use o valor de 3.1415 para o valor da constante π
 def calcular_area_de_circulo():
     """Escreva aqui em baixo a sua solução"""
     raio = float(input('Por favor informe o valor do raio: '))
-    area = 3.14_15_92 * raio ** 2
+    area = pi * raio ** 2
     print(f'A área do círculo com esse raio é: {area:.4f}')
