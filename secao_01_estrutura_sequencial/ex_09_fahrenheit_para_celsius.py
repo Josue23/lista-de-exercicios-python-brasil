@@ -21,5 +21,7 @@ def transformar_para_celsius():
     """Escreva aqui em baixo a sua solução"""
     fahrenheit = float(input('Graus em Fahrenheit: '))
     celsius = 5 * (fahrenheit - 32) / 9
-    celsius = int(celsius)
+    '''floor equivalent in Python 3 without Math module
+    https://stackoverflow.com/questions/32558805/ceil-and-floor-equivalent-in-python-3-without-math-module'''
+    celsius = int(celsius // 1)
     print(f'Essa temperatura é de {celsius} Celsius')
