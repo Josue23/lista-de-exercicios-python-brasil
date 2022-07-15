@@ -19,5 +19,5 @@ def calcular_media():
     nota_2 = int(input('Por favor informe a nota: '))
     nota_3 = int(input('Por favor informe a nota: '))
     nota_4 = int(input('Por favor informe a nota: '))
-    media = nota_1 + nota_2 + nota_3 + nota_4
+    media = (nota_1 + nota_2 + nota_3 + nota_4) / 4
     print(f'A média anual é {media}')
