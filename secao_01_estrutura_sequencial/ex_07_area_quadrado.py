@@ -23,5 +23,5 @@ def calcular_area_de_quadrado():
     lado_quadrado = float(input('Por favor informe o lado: '))
     area_quadrado = lado_quadrado * lado_quadrado
     dobro_da_area = area_quadrado * 2
-    print(f'A área do quadrado com esse lado é: {area_quadrado}')
+    print(f'A área do quadrado com esse lado é: {area_quadrado:.2f}')
     print(f'O dobro da aŕea do quadrado é: {dobro_da_area:.2f}')
