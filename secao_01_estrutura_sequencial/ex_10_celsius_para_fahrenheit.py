@@ -22,6 +22,6 @@ def transformar_para_fahrenheit():
     fahrenheit = celsius * 1.8 + 32
     '''ceil equivalent in Python 3 without Math module
     https://stackoverflow.com/questions/32558805/ceil-and-floor-equivalent-in-python-3-without-math-module'''
-    fahrenheit = -(-fahrenheit // 1)
+    fahrenheit = int(-(-fahrenheit // 1))
 
     print(f'Essa temperatura é de {fahrenheit} Fahrenheit')
