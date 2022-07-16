@@ -22,9 +22,12 @@ Faça um Programa que peça 2 números inteiros e um número real. Calcule e mos
 
 def calcular_formulas():
     """Escreva aqui em baixo a sua solução"""
-    numero_1 = int(input('Por favor informe um valor inteiro: '))
-    numero_2 = int(input('Por favor informe um valor inteiro: '))
-    numero_3 = float(input('Por favor informe um valor real : '))
+    try:
+        numero_1 = int(input('Por favor informe um valor inteiro: '))
+        numero_2 = int(input('Por favor informe um valor inteiro: '))
+        numero_3 = float(input('Por favor informe um valor real : '))
+    except EOFError:
+        return
 
     def produto(numero_1: int, numero_2: int):
         '''o produto do dobro do primeiro com metade do segundo . '''
