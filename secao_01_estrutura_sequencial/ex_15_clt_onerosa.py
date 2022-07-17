@@ -40,4 +40,4 @@ def calcular_assalto_no_salario():
     print(f'- IR (11%) : R$ {impoto_renda:.2f}')
     print(f'- INSS (8%) : R$ {inss:.2f}')
     print(f'- Sindicato ( 5%) : R$ {sindicato:.2f}')
-    print(f'= Salário Líquido : R$ {salario_liquido:.2f}')
+    print(f'= Salário Liquido : R$ {salario_liquido:.2f}')
