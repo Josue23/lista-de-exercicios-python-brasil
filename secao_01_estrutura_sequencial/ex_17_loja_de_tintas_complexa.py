@@ -30,3 +30,63 @@ Acrescente 10% de folga e sempre arredonde os valores para cima, isto é, consid
 
 def calcular_latas_e_preco_de_tinta():
     """Escreva aqui em baixo a sua solução"""
+    area_a_ser_pintada = float(
+        input('Por favor informe a área em metros quadrados: '))
+    area_a_ser_pintada *= 1.1
+    litros_por_metro = 6
+    litros_por_lata = 18
+    litros_por_galao = 3.6
+    litros_de_tinta = int(-(-area_a_ser_pintada // litros_por_metro))
+
+    def apenas_latas(area_a_ser_pintada, litros_por_metro, litros_por_lata, litros_de_tinta):
+        # litros_de_tinta = area_a_ser_pintada / litros_por_metro
+        # litros_de_tinta = int(-(-area_a_ser_pintada // litros_por_metro))
+        # litros_por_lata = 18
+        '''math.ceil without importing math module
+        https://stackoverflow.com/questions/32558805/ceil-and-floor-equivalent-in-python-3-without-math-module'''
+        latas_de_tinta = int(-(-litros_de_tinta // litros_por_lata))
+        sobra_de_tinta_em_litros = latas_de_tinta * litros_por_lata - litros_de_tinta
+        valor_total = latas_de_tinta * 80
+        print(f'Você deve comprar {litros_de_tinta} litros de tinta.')
+        print(
+            f'''Você pode comprar {latas_de_tinta} lata(s) de 18 litros a um custo de R$ {valor_total}. Vão sobrar {sobra_de_tinta_em_litros:.1f} litro(s) de tinta.''')
+    apenas_latas(area_a_ser_pintada, litros_por_metro,
+                 litros_por_lata, litros_de_tinta)
+
+    def apenas_galoes(area_a_ser_pintada, litros_de_tinta, litros_por_galao):
+        '''math.ceil without importing math module
+        https://stackoverflow.com/questions/32558805/ceil-and-floor-equivalent-in-python-3-without-math-module'''
+        # litros_por_galao = 3.6
+        galoes_de_tinta = -(-litros_de_tinta // litros_por_galao)
+        sobra_de_tinta_em_litros = galoes_de_tinta * litros_por_galao - litros_de_tinta
+
+        valor_total = galoes_de_tinta * 25
+
+        print(
+            f'Você pode comprar {galoes_de_tinta} lata(s) de 3.6 litros a um custo de R$ {valor_total}. Vão sobrar {sobra_de_tinta_em_litros:.2f} litro(s) de tinta.')
+    apenas_galoes(area_a_ser_pintada, litros_de_tinta, litros_por_galao)
+
+    def latas_e_galoes(area_a_ser_pintada, litros_por_metro, litros_de_tinta, litros_por_lata, litros_por_galao):
+        if area_a_ser_pintada >= 108:
+            latas_de_tinta = litros_de_tinta // litros_por_lata
+        else:
+            latas_de_tinta = 0
+
+        '''math.ceil without importing math module
+        https://stackoverflow.com/questions/32558805/ceil-and-floor-equivalent-in-python-3-without-math-module'''
+        # galoes_de_tinta = -(-area_em_metros_restante // litros_de_tinta)
+        litros_faltantes = litros_de_tinta % litros_por_lata
+        galoes_de_tinta = int(-(-litros_faltantes // litros_por_galao))
+        # print(f'galoes_de_tinta: {galoes_de_tinta}')
+
+        # galoes_de_tinta = area_em_metros_restante // litros_de_tinta
+
+        sobra_de_tinta_em_litros = (latas_de_tinta * litros_por_lata) + \
+            (galoes_de_tinta * litros_por_galao) - litros_de_tinta
+        valor_latas = latas_de_tinta * 80
+        valor_galoes = galoes_de_tinta * 25
+        valor_total = valor_latas + valor_galoes
+        print(f'Para menor custo, você pode comprar {latas_de_tinta} lata(s) de {litros_por_lata} litros e {galoes_de_tinta} galão(ões) de {litros_por_galao} litros a um custo de R$ {valor_total}. Vão sobrar {sobra_de_tinta_em_litros:.2f} litro(s) de tinta.')
+
+    latas_e_galoes(area_a_ser_pintada, litros_por_metro,
+                   litros_de_tinta, litros_por_lata, litros_por_galao)
