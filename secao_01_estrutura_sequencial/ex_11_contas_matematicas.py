@@ -48,6 +48,3 @@ def calcular_formulas():
         numero_3_cubo = numero_3 ** 3
         print(f'O terceiro elevado ao cubo é {numero_3_cubo:.2f}')
     cubo(numero_3)
-
-
-calcular_formulas()
