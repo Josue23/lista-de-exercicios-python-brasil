@@ -41,4 +41,4 @@ def calcular_latas_e_preco_de_tinta():
 
     valor_total = latas_de_tinta * 80
     print(
-        f' Você deve comprar {latas_de_tinta} lata(s) tinta ao custo de R$ {valor_total:.2f}')
+        f'Você deve comprar {latas_de_tinta} lata(s) tinta ao custo de R$ {valor_total:.2f}')
