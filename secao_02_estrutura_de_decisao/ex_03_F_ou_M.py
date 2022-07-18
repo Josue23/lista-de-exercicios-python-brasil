@@ -2,7 +2,7 @@
 Exercício 03 da seção de estrutura de decisão da Python Brasil:
 https://wiki.python.org.br/EstruturaDeDecisao
 
-Faça um Programa que verifique se uma letra digitada é "F" ou "M".
+Faça um Programa que verif sexo == ique se uma letra digitada é "F" ou "M".
 Retorne: F - Feminino ou M - Masculino. Para quaisquer outros valores, retorne Sexo Inválido.
 
     >>> f_ou_m("F")
@@ -18,9 +18,9 @@ Retorne: F - Feminino ou M - Masculino. Para quaisquer outros valores, retorne S
 
 def f_ou_m(sexo):
     """Escreva aqui em baixo a sua solução"""
-    if 'F':
+    if sexo == 'F':
         return 'F - Feminino'
-    elif 'M':
+    elif sexo == 'M':
         return 'M - Masculino'
     else:
         return 'Sexo inválido'
