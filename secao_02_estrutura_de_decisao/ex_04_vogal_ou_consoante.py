@@ -1,3 +1,4 @@
+import string
 """
 Exercício 04 da seção de estrutura de decisão da Python Brasil:
 https://wiki.python.org.br/EstruturaDeDecisao
@@ -17,3 +18,11 @@ Faça um Programa que verifique se uma letra digitada é vogal ou consoante.
 
 def vogal_ou_consoante(letra):
     """Escreva aqui em baixo a sua solução"""
+    # letra = str(letra)
+    letras = string.ascii_letters
+    vogais = 'AaEeIiOoUu'
+    if letra in letras:
+        if letra in vogais:
+            return 'vogal'
+        else:
+            return 'consoante'
