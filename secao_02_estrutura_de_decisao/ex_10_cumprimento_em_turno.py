@@ -36,4 +36,4 @@ def cumprimentar(turno: str):
         elif turno == 'X':
             cumprimento = 'Valor Inválido!'
 
-    return cumprimento
+        return cumprimento
