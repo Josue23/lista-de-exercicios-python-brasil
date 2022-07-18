@@ -18,5 +18,10 @@ Mostrar o resultado com duas casas decimais
 """
 
 
-def decidir_melhor_produto(x, y, z):
+def decidir_melhor_produto(produto_1, produto_2, produto_3):
     """Escreva aqui em baixo a sua solução"""
+    lista_produtos = [produto_1, produto_2, produto_3]
+    lista_produtos_ordenada = sorted(lista_produtos)
+    mais_barato = lista_produtos_ordenada[0]
+
+    print(f'Melhor produto custa R$ {mais_barato:.2f}')
