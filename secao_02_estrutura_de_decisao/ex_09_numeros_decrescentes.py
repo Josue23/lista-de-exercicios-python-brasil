@@ -13,8 +13,16 @@ Faça um Programa que leia três números e mostre-os em ordem decrescente.
     >>> ordenar_decrescente(7, 1, 15)
     15, 7, 1
 
+Exercício resolvido usando quick sort
 """
 
 
 def ordenar_decrescente(x, y, z):
-    """Escreva aqui em baixo a sua solução"""
+    '''Faça um Programa que leia três números e mostre-os em ordem decrescente. '''
+    numeros = x, y, z
+    numeros = sorted(numeros, reverse=True)
+    for numero in numeros:
+        if numero == numeros[-1]:
+            print(numero)
+            break
+        print(numero, end=', ')
