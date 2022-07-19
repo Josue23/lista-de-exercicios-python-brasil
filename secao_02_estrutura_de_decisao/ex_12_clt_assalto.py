@@ -74,11 +74,11 @@ def calcular_salario_liquido(valor_hora: float, horas_trabalhadas: int):
     descontos = imposto_renda + inss + sindicato
     salario_liquido = salario_bruto - descontos
     print(
-        f'Salário Bruto: (R$ {valor_hora:.2f} * {horas_trabalhadas})   : R$ {salario_bruto:.2f}')
+        f'Salário Bruto: (R$ {valor_hora:.2f} * {horas_trabalhadas})     : R$  {salario_bruto:.2f}')
     print(
-        f'(-) IR ({base_calculo_imposto_renda}%)                       : R$  {imposto_renda:.2f}')
-    print(f'(-) INSS (10%)                     : R$  {inss:.2f}')
-    print(f'(-) Sindicato (3%)                 : R$   {sindicato:.2f}')
-    print(f'FGTS (11%)                         : R$  {fgts:.2f}')
-    print(f'Total de descontos                 : R$  {descontos:.2f}')
-    print(f'Salário Liquido                    : R$ {salario_liquido:.2f}')
+        f'(-) IR ({base_calculo_imposto_renda}%)                        : R$    {imposto_renda:.2f}')
+    print(f'(-) INSS (10%)                     : R$   {inss:.2f}')
+    print(f'(-) Sindicato (3%)                 : R$    {sindicato:.2f}')
+    print(f'FGTS (11%)                         : R$   {fgts:.2f}')
+    print(f'Total de descontos                 : R$   {descontos:.2f}')
+    print(f'Salário Liquido                    : R$  {salario_liquido:.2f}')
