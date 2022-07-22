@@ -44,5 +44,29 @@ Mostar valores com uma casa decimal.
 """
 
 
-def calcular_conceito(nota_1: float, nota_2: float):
+def calcular_conceito(nota_1: float, nota_2: float) -> float:
     """Escreva aqui em baixo a sua solução"""
+    nota_1 = float(nota_1)
+    nota_2 = float(nota_2)
+    media = (nota_1 + nota_2) / 2
+
+    if 9 < media <= 10:
+        conceito = 'A'
+    elif 7.5 < media <= 9:
+        conceito = 'B'
+    elif 6 < media <= 7.5:
+        conceito = 'C'
+    elif 4 < media <= 6:
+        conceito = 'D'
+    elif 0 <= media <= 4:
+        conceito = 'E'
+
+    if conceito in ['A', 'B', 'C']:
+        mensagem = 'APROVADO'
+    else:
+        mensagem = 'REPROVADO'
+
+    print(f'Notas: {nota_1:.1f} e {nota_2:.1f}.')
+    print(f'Média: {media:.1f}')
+    print(f'Conceito: {conceito}')
+    print(f'Status: {mensagem}')
