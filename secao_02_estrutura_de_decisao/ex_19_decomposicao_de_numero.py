@@ -63,13 +63,8 @@ def decompor_numero(entrada: int):
         return 'O número precisa ser positivo'
     centena = 100
     dezena = 10
-
-    centenas = entrada // centena
-    restante = entrada % centena
-
-    dezenas = restante // dezena
-    restante = restante % dezena
-
+    centenas, restante = divmod(entrada, centena)
+    dezenas, restante = divmod(restante, dezena)
     unidades = restante
 
     '''Python Ternary operator'''
