@@ -88,4 +88,4 @@ def decompor_numero(entrada: int):
     '''altera a última ocorrência de ", " por string vazia'''
     mensagem = rreplace(mensagem, ', ', '', 1)
 
-    return f"{entrada} =  {rreplace(mensagem, ', ', ' e ', 1)}"
+    return f"{entrada} = {rreplace(mensagem, ', ', ' e ', 1)}"
