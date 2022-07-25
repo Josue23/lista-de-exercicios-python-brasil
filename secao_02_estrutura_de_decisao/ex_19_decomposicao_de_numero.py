@@ -50,5 +50,42 @@ Observando os termos no plural a colocação do "e", da vírgula entre outros. E
 """
 
 
-def decompor_numero(numero: int):
+def rreplace(s, old, new, occurrence):
+    li = s.rsplit(old, occurrence)
+    return new.join(li)
+
+
+def decompor_numero(entrada: int):
     """Escreva aqui em baixo a sua solução"""
+    if entrada > 999:
+        return 'O número precisa ser menor que 1000'
+    elif entrada < 1:
+        return 'O número precisa ser positivo'
+    centena = 100
+    dezena = 10
+
+    centenas = entrada // centena
+    restante = entrada % centena
+
+    dezenas = restante // dezena
+    restante = restante % dezena
+
+    unidades = restante
+
+    '''Python Ternary operator'''
+    centenas_str = 'centenas' if centenas > 1 else 'centena'
+    dezenas_str = 'dezenas' if dezenas > 1 else 'dezena'
+    unidades_str = 'unidades' if unidades > 1 else 'unidade'
+
+    lista = [centenas, dezenas, unidades]
+    lista_str = [centenas_str, dezenas_str, unidades_str]
+
+    mensagem = ''
+    for count, value in enumerate(lista):
+        if value > 0:
+            mensagem += f'{lista[count]} {lista_str[count]}, '
+    # mensagem = mensagem[:-2]
+    '''altera a última ocorrência de ", " por string vazia'''
+    mensagem = rreplace(mensagem, ', ', '', 1)
+
+    return f"{entrada} =  {rreplace(mensagem, ', ', ' e ', 1)}"
