@@ -61,26 +61,25 @@ def decompor_numero(entrada: int):
         return 'O número precisa ser menor que 1000'
     elif entrada < 1:
         return 'O número precisa ser positivo'
-    centena = 100
-    dezena = 10
-    centenas, restante = divmod(entrada, centena)
-    dezenas, restante = divmod(restante, dezena)
-    unidades = restante
+    else:
+        centenas, restante = divmod(entrada, 100)
+        dezenas, restante = divmod(restante, 10)
+        unidades = restante
 
-    '''Python Ternary operator'''
-    centenas_str = 'centenas' if centenas > 1 else 'centena'
-    dezenas_str = 'dezenas' if dezenas > 1 else 'dezena'
-    unidades_str = 'unidades' if unidades > 1 else 'unidade'
+        '''Python Ternary operator'''
+        centenas_str = 'centenas' if centenas > 1 else 'centena'
+        dezenas_str = 'dezenas' if dezenas > 1 else 'dezena'
+        unidades_str = 'unidades' if unidades > 1 else 'unidade'
 
-    lista = [centenas, dezenas, unidades]
-    lista_str = [centenas_str, dezenas_str, unidades_str]
+        lista = [centenas, dezenas, unidades]
+        lista_str = [centenas_str, dezenas_str, unidades_str]
 
-    mensagem = ''
-    for count, value in enumerate(lista):
-        if value > 0:
-            mensagem += f'{lista[count]} {lista_str[count]}, '
-    # mensagem = mensagem[:-2]
-    '''altera a última ocorrência de ", " por string vazia'''
-    mensagem = rreplace(mensagem, ', ', '', 1)
+        mensagem = ''
+        for count, value in enumerate(lista):
+            if value > 0:
+                mensagem += f'{lista[count]} {lista_str[count]}, '
+        # mensagem = mensagem[:-2]
+        '''altera a última ocorrência de ", " por string vazia'''
+        mensagem = rreplace(mensagem, ', ', '', 1)
 
     return f"{entrada} = {rreplace(mensagem, ', ', ' e ', 1)}"
