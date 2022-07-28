@@ -1,4 +1,3 @@
-# from secao_02_estrutura_de_decisao.ex_22_par_ou_impar import decidir_se_eh_par_ou_impar
 from secao_02_estrutura_de_decisao.ex_02_positivo_ou_negativo import positivo_ou_negativo
 from secao_02_estrutura_de_decisao.ex_23_inteiro_ou_decimal import decidir_se_eh_inteiro_ou_decimal
 """
@@ -40,18 +39,6 @@ def decidir_se_eh_par_ou_impar(valor: int) -> str:
         return None
 
     return par_ou_impar
-
-
-# def positivo_ou_negativo(n):
-#     """Escreva aqui em baixo a sua solução"""
-#     resultado = 'positivo' if n > 0 else 'negativo' if n < 0 else 'neutro'
-#     return resultado
-
-
-# def decidir_se_eh_inteiro_ou_decimal(valor: str) -> str:
-#     """Escreva aqui em baixo a sua solução"""
-#     resultado = 'Inteiro' if float(valor) // 1 == float(valor) else 'Decimal'
-#     return resultado
 
 
 def fazer_operacao_e_classificar(n_1: float, n_2: float, operacao: str):
