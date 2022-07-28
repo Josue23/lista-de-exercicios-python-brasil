@@ -33,3 +33,19 @@ Caso contrário, ele será classificado como "Inocente".
 
 def investigar(telefonou: str, estava_no_local: str, mora_perto: str, devia: str, trabalhou: str, ):
     """Escreva aqui em baixo a sua solução"""
+    respostas_dict = {}
+    respostas_dict['telefonou'] = telefonou
+    respostas_dict['estava_no_local'] = estava_no_local
+    respostas_dict['mora_perto'] = mora_perto
+    respostas_dict['devia'] = devia
+    respostas_dict['trabalhou'] = trabalhou
+
+    respostas_positivas = 0
+    for key, value in respostas_dict.items():
+        if value == 'Sim':
+            respostas_positivas += respostas_dict.get(value, 0) + 1
+
+    mensagem = 'Assassino' if respostas_positivas == 5 else 'Cúmplice' if respostas_positivas > 2 \
+        else 'Suspeito' if respostas_positivas == 2 else 'Inocente'
+
+    return mensagem
