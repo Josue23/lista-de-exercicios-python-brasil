@@ -59,3 +59,41 @@ Mostre o restultado com duas casas decimais
 
 def calcular_preco_da_compra(kilos_de_morango: int, kilos_de_maca: int):
     """Escreva aqui em baixo a sua solução"""
+    # calcula o preço de cada item
+    preco_kilo_morango = 2.50 if kilos_de_morango <= 5 else 2.20
+    preco_kilo_maca = 1.80 if kilos_de_maca <= 5 else 1.50
+
+    # soma a quantidade de quilos da compra
+    quantidade_de_kilos = kilos_de_morango + kilos_de_maca
+
+    # calcula o valor de cada item multiplicado pelas quantidades
+    valor_compra_morango = kilos_de_morango * preco_kilo_morango
+    valor_compra_maca = kilos_de_maca * preco_kilo_maca
+    valor_compra_sem_desconto = valor_compra_morango + valor_compra_maca
+
+    # calcula o desconto
+    desconto = 0
+    if quantidade_de_kilos > 8 or valor_compra_sem_desconto > 25:
+        desconto = valor_compra_sem_desconto * 0.1
+    total = valor_compra_sem_desconto-desconto
+
+    produtos_dict = {
+        'Morango': valor_compra_morango,
+        'Maça': valor_compra_maca
+    }
+    mensagem_morango = ''
+    mensagem_maca = ''
+    mensagem_desconto = f"(-) Desconto - valor: R$ {desconto:.2f}"
+    for produto, valor in produtos_dict.items():
+        if produto == 'Morango' and valor > 0:
+            mensagem_morango += f"(+) {produto}  - valor: R$ {valor_compra_morango:.2f} - quantidade: {kilos_de_morango} kg - preço: R$ {preco_kilo_morango:.2f}/kg"
+        elif produto == 'Maça' and valor > 0:
+            mensagem_maca += f"(+) {produto}     - valor: R$ {valor_compra_maca:.2f} - quantidade: {kilos_de_maca} kg - preço: R$ {preco_kilo_maca:.2f}/kg"
+
+    print(mensagem_morango)
+    print(mensagem_maca)
+    print(mensagem_desconto)
+    # print(f'Valor Total: R$ {f"{total:.2f}":>56}')
+    # print(f"{'Valor Total: R$':>36 + '{total:.2f}':>36}")
+
+    print(f'         Valor Total: R$ {total:.2f}')
