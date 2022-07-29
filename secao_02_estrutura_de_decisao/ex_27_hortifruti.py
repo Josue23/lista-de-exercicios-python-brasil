@@ -93,7 +93,5 @@ def calcular_preco_da_compra(kilos_de_morango: int, kilos_de_maca: int):
     print(mensagem_morango)
     print(mensagem_maca)
     print(mensagem_desconto)
-    # print(f'Valor Total: R$ {f"{total:.2f}":>56}')
-    # print(f"{'Valor Total: R$':>36 + '{total:.2f}':>36}")
 
     print(f'         Valor Total: R$ {total:.2f}')
