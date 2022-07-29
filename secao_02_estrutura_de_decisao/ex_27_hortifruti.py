@@ -90,7 +90,9 @@ def calcular_preco_da_compra(kilos_de_morango: int, kilos_de_maca: int):
         elif produto == 'Maça' and valor > 0:
             mensagem_maca += f"(+) {produto}     - valor: R$ {valor_compra_maca:.2f} - quantidade: {kilos_de_maca} kg - preço: R$ {preco_kilo_maca:.2f}/kg"
 
-    print(mensagem_morango)
-    print(mensagem_maca)
+    if kilos_de_morango > 0:
+        print(mensagem_morango)
+    elif kilos_de_maca > 0:
+        print(mensagem_maca)
     print(mensagem_desconto)
     print(f'         Valor Total: R$ {total:.2f}')
