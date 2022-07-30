@@ -83,7 +83,7 @@ def calcular_preco_da_compra(kilos_de_morango: int, kilos_de_maca: int):
     }
     mensagem_morango = ''
     mensagem_maca = ''
-    mensagem_desconto = '(-)  Desconto - valor:  R$  ' + \
+    mensagem_desconto = '(-)  Desconto - valor:  R$ ' + \
         f"{desconto:.2f}".rjust(5)
     for produto, valor in produtos_dict.items():
         if produto == 'Morango' and valor > 0:
