@@ -48,7 +48,7 @@ Mostre o restultado com duas casas decimais
 def calcular_preco_da_carne(tipo_de_carne: str, kilos_de_carne: int, forma_de_pagamento: str) -> str:
     """Escreva aqui em baixo a sua solução"""
     tipos_de_carne = ['Filé Duplo', 'Alcatra', 'Picanha']
-    formas_de_pagamentor = ['dinheiro', 'cartão tabajara']
+    formas_de_pagamentor = ['dinheiro', 'cartão tabajara', 'pix']
 
     preco_kilo_file_duplo = 4.90 if kilos_de_carne <= 5 else 5.80
     preco_kilo_alcatra = 5.90 if kilos_de_carne <= 5 else 6.80
@@ -63,22 +63,30 @@ def calcular_preco_da_carne(tipo_de_carne: str, kilos_de_carne: int, forma_de_pa
     '''
     TO DO
     valida a entrada de apenas um tipo de carne por cliente
+
+    Done
     inserir a forma de agamento pix
+    formatar mensagem
     '''
 
     valor_compra_sem_desconto = tipos_e_precos_dict.get(
         tipo_de_carne, 0) * kilos_de_carne
+
     porcentagem_desconto = 5 if forma_de_pagamento == 'cartão tabajara' else 0
+
     valor_desconto = valor_compra_sem_desconto * porcentagem_desconto / \
         100 if forma_de_pagamento == 'cartão tabajara' else 0
-    valor_compra_com_desconto = valor_compra_sem_desconto-valor_desconto
 
-    if valor_desconto == 0:
-        mensagem = f'{kilos_de_carne} kg de {tipo_de_carne} a R$ {tipos_e_precos_dict[tipo_de_carne]:.2f}/kg \
-        saem a R$ {valor_compra_sem_desconto:.2f}. Não há desconto, pagamento feito com dinheiro'
+    valor_compra_com_desconto = valor_compra_sem_desconto - valor_desconto
+
+    if porcentagem_desconto == 5:
+        mensagem = f'{kilos_de_carne} kg de {tipo_de_carne} a R$ {tipos_e_precos_dict[tipo_de_carne]:.2f}/kg ' \
+            + f'saem a R$ {valor_compra_sem_desconto:.2f}.'  \
+            + f' Com desconto de {porcentagem_desconto}% pelo pagamento feito com {forma_de_pagamento},' \
+            + f'fica R$ {valor_compra_com_desconto:.2f}'
     else:
-        mensagem = f'{kilos_de_carne} kg de {tipo_de_carne} a R$ {tipos_e_precos_dict[tipo_de_carne]:.2f}/kg \
-        saem a R$ {valor_compra_sem_desconto:.2f}. Com desconto de 5% pelo pagamento feito com cartão tabajara,\
-        fica R$ {valor_compra_com_desconto:.2f}'
+        mensagem = f'{kilos_de_carne} kg de {tipo_de_carne} a R$ {tipos_e_precos_dict[tipo_de_carne]:.2f}/kg ' \
+            + f'saem a R$ {valor_compra_sem_desconto:.2f}.'  \
+            + f' Não há desconto, pagamento feito com {forma_de_pagamento}'
 
     return mensagem
