@@ -60,15 +60,6 @@ def calcular_preco_da_carne(tipo_de_carne: str, kilos_de_carne: int, forma_de_pa
     tipos_e_precos_zip = list(zip(tipos_de_carne, precos_de_carne))
     tipos_e_precos_dict = dict(tipos_e_precos_zip)
 
-    '''
-    TO DO
-    valida a entrada de apenas um tipo de carne por cliente
-
-    Done
-    inserir a forma de agamento pix
-    formatar mensagem
-    '''
-
     valor_compra_sem_desconto = tipos_e_precos_dict.get(
         tipo_de_carne, 0) * kilos_de_carne
 
