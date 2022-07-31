@@ -83,7 +83,7 @@ def calcular_preco_da_carne(tipo_de_carne: str, kilos_de_carne: int, forma_de_pa
         mensagem = f'{kilos_de_carne} kg de {tipo_de_carne} a R$ {tipos_e_precos_dict[tipo_de_carne]:.2f}/kg ' \
             + f'saem a R$ {valor_compra_sem_desconto:.2f}.'  \
             + f' Com desconto de {porcentagem_desconto}% pelo pagamento feito com {forma_de_pagamento},' \
-            + f'fica R$ {valor_compra_com_desconto:.2f}'
+            + f' fica R$ {valor_compra_com_desconto:.2f}'
     else:
         mensagem = f'{kilos_de_carne} kg de {tipo_de_carne} a R$ {tipos_e_precos_dict[tipo_de_carne]:.2f}/kg ' \
             + f'saem a R$ {valor_compra_sem_desconto:.2f}.'  \
