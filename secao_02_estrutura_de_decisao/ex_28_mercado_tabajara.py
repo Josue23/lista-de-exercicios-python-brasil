@@ -48,7 +48,6 @@ Mostre o restultado com duas casas decimais
 def calcular_preco_da_carne(tipo_de_carne: str, kilos_de_carne: int, forma_de_pagamento: str) -> str:
     """Escreva aqui em baixo a sua solução"""
     tipos_de_carne = ['Filé Duplo', 'Alcatra', 'Picanha']
-    formas_de_pagamentor = ['dinheiro', 'cartão tabajara', 'pix']
 
     preco_kilo_file_duplo = 4.90 if kilos_de_carne <= 5 else 5.80
     preco_kilo_alcatra = 5.90 if kilos_de_carne <= 5 else 6.80
