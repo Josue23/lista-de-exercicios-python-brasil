@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-import string
 """
 Exercício 01 da seção de estrutura sequencial da Python Brasil:
 https://wiki.python.org.br/EstruturaDeRepeticao
