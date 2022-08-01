@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+import string
 """
 Exercício 01 da seção de estrutura sequencial da Python Brasil:
 https://wiki.python.org.br/EstruturaDeRepeticao
@@ -34,3 +36,16 @@ até que o usuário informe um valor válido.
 
 def obter_numero_valido():
     """Escreva aqui em baixo a sua solução"""
+    entrada_str = input('Por favor informe um número: ')
+    entrada_lista = entrada_str.split(",")
+    entrada_lista.reverse()
+
+    for caracter in entrada_lista:
+
+        if not caracter.isnumeric():
+            print(f'Número inválido: {caracter}')
+        elif caracter.isnumeric() and int(caracter) not in range(11):
+            print(f'Número inválido: {caracter}')
+
+        else:
+            print(caracter)
