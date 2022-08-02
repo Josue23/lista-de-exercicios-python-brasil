@@ -18,3 +18,25 @@ Também mostre a soma dos números da sequência.
 
 def calcular_numeros_no_intervalo_e_somar(inicio: int, fim: int) -> str:
     """Escreva aqui em baixo a sua solução"""
+
+    soma = 0
+    sequencia = ''
+    if inicio > fim:
+        mensagem = f'Sequência: vazia. Soma: {soma}'
+    else:
+        '''
+        PEP 572 – Assignment Expressions
+        https://stackoverflow.com/a/55890694/5487213
+        https://peps.python.org/pep-0572/
+        '''
+        [soma := soma + x for x in range(inicio, fim)]
+        [sequencia := sequencia +
+            f'{numero}, ' for numero in range(inicio, fim)]
+        sequencia = sequencia.removesuffix(', ')
+
+    if soma != 0:
+        mensagem = f'Sequência: {sequencia}. Soma: {soma}'
+    else:
+        mensagem = f'Sequência: vazia. Soma: {soma}'
+
+    return mensagem
