@@ -34,9 +34,6 @@ def calcular_numeros_no_intervalo_e_somar(inicio: int, fim: int) -> str:
             f'{numero}, ' for numero in range(inicio, fim)]
         sequencia = sequencia.removesuffix(', ')
 
-    if soma != 0:
         mensagem = f'Sequência: {sequencia}. Soma: {soma}'
-    else:
-        mensagem = f'Sequência: vazia. Soma: {soma}'
 
     return mensagem
