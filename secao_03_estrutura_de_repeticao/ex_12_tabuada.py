@@ -122,5 +122,11 @@ Desenvolva um gerador de tabuada, capaz de gerar a tabuada de qualquer número i
 """
 
 
-def gerar_tabuada(n: int) -> str:
+def gerar_tabuada(multiplicando: int) -> str:
     """Escreva aqui em baixo a sua solução"""
+    if multiplicando not in range(1, 11):
+        print('Somente pode ser gerada tabuada de 1 a 10')
+    else:
+        for multiplicador in range(1, 11):
+            print(
+                f'{multiplicando} X {multiplicador} = {multiplicando * multiplicador}')
