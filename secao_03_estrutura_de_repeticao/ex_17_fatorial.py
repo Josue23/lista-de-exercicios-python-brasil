@@ -23,3 +23,11 @@ Ex.: 5!=5.4.3.2.1=120
 
 def calcular_fatorial(n: int) -> int:
     """Escreva aqui em baixo a sua solução"""
+    fatorial = 1
+
+    numeros = list(range(2, n + 1))
+
+    for numero in numeros:
+        fatorial = fatorial * numero
+
+    return fatorial
