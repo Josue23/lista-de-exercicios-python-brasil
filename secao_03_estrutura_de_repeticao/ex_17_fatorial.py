@@ -27,7 +27,8 @@ def calcular_fatorial(n: int) -> int:
 
     numeros = list(range(2, n + 1))
 
-    for numero in numeros:
-        fatorial = fatorial * numero
+    [fatorial := fatorial * numero for numero in numeros]
+    # for numero in numeros:
+    #     fatorial = fatorial * numero
 
     return fatorial
