@@ -25,3 +25,16 @@ n−ésimo termo.
 
 def calcular_serie_de_fibonacci(n: int) -> str:
     """Escreva aqui em baixo a sua solução"""
+
+    anterior, proxima, soma = 1, 1, 1
+
+    mensagem = ''
+    for n in range(n):
+        mensagem += f"{anterior}, "
+        soma = anterior + proxima
+        anterior = proxima
+        proxima = soma
+
+    mensagem = mensagem.removesuffix(', ')
+
+    return mensagem
