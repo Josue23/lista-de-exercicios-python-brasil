@@ -39,3 +39,10 @@ divisível somente por ele mesmo e por 1.
 
 def eh_primo(n: int) -> bool:
     """Escreva aqui em baixo a sua solução"""
+    if n in range(2):
+        return False
+    else:
+        for numero in range(2, n):
+            if n % numero == 0:
+                return False
+    return True
