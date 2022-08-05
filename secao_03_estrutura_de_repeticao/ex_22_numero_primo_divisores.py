@@ -48,5 +48,17 @@ divisível.
 """
 
 
-def eh_primo(n: int) -> bool:
+def eh_primo(divisivel: int) -> bool:
     """Escreva aqui em baixo a sua solução"""
+    divisores = []
+    if divisivel in range(2):
+        return False
+    else:
+        for divisor in range(2, divisivel):
+            if divisivel % divisor == 0:
+                divisores.append(divisor)
+        if len(divisores) > 0:
+            for divisor in divisores:
+                print(f'É divisível por {divisor}')
+            return False
+    return True
