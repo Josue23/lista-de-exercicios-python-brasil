@@ -54,11 +54,10 @@ def eh_primo(divisivel: int) -> bool:
     if divisivel in range(2):
         return False
     else:
-        for divisor in range(2, divisivel):
-            if divisivel % divisor == 0:
-                divisores.append(divisor)
+        [divisores.append(divisor) for divisor in range(
+            2, divisivel) if divisivel % divisor == 0]
+
         if len(divisores) > 0:
-            for divisor in divisores:
-                print(f'É divisível por {divisor}')
+            [print(f'É divisível por {divisor}') for divisor in divisores]
             return False
     return True
