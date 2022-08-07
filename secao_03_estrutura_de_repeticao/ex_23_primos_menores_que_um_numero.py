@@ -1,3 +1,4 @@
+from secao_03_estrutura_de_repeticao.ex_21_numero_primo import eh_primo
 """
 Exercício 23 da seção de estrutura sequencial da Python Brasil:
 https://wiki.python.org.br/EstruturaDeRepeticao
@@ -41,5 +42,13 @@ Serão avaliados o funcionamento, o estilo e o número de testes (divisões) exe
 from typing import Tuple
 
 
-def calcular_primos_e_divisoes(n: int) -> Tuple[str, int]:
+def calcular_primos_e_divisoes(divisivel: int) -> Tuple[str, int]:
     """Escreva aqui em baixo a sua solução"""
+    primos, divisoes = '', 0
+    for n in range(1, divisivel + 1):
+        (divisoes := 1)
+        if eh_primo(n):
+            primos += f'{str(n)}, '
+    primos = primos.removesuffix(', ')
+
+    return primos, divisoes
