@@ -1,3 +1,5 @@
+from functools import reduce
+from operator import add
 """
 Exercício 28 da seção de estrutura sequencial da Python Brasil:
 https://wiki.python.org.br/EstruturaDeRepeticao
@@ -38,3 +40,17 @@ Mostre os valores monetórios com duas casas decimais..
 
 def calcular_estatisticas_colecao_de_cd():
     """Escreva aqui em baixo a sua solução"""
+    quantidade_de_cds = int(input('Quantidade de cds: '))
+    mensagens_lista = [f'Número de cds: {quantidade_de_cds}']
+
+    valores_de_cds = []
+    (valores_de_cds := int(input('Valor do cd: '))
+     for n in range(len(quantidade_de_cds)))
+    # for n in range(len(quantidade_de_cds)):
+    #     valores_de_cds.append(int(input('Valor do cd: ')))
+
+    valor_total_da_colecao = reduce(add, valores_de_cds)
+    custo_medio = valor_total_da_colecao / len(valores_de_cds)
+    mensagens_lista.append(
+        f'Valor total da coleção: R$ {valor_total_da_colecao:.2f}')
+    valor_total_da_colecao.append(f'Custo médio dos cds: R$ {custo_medio}')
