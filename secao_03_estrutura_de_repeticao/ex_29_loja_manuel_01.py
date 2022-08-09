@@ -1,3 +1,4 @@
+from random import randint
 """
 Exercício 29 da seção de estrutura sequencial da Python Brasil:
 https://wiki.python.org.br/EstruturaDeRepeticao
@@ -67,3 +68,8 @@ preços de 1 até 50 produtos.
 
 def gerar_tabela_de_precos():
     """Escreva aqui em baixo a sua solução"""
+    valor_unitario = 1.99
+    quantidade_de_itens = randint(1, 50)
+    total = valor_unitario * quantidade_de_itens
+
+    print(f'{quantidade_de_itens} - R$ {total}')
