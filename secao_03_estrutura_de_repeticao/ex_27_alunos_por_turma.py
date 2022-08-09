@@ -1,3 +1,5 @@
+from functools import reduce
+from operator import add
 """
 Exercício 27 da seção de estrutura sequencial da Python Brasil:
 https://wiki.python.org.br/EstruturaDeRepeticao
@@ -40,19 +42,18 @@ def calcular_media_de_alunos_por_turma():
     mensagens_lista = [f'Número de turmas: {numero_de_turmas}']
 
     quantidade_de_alunos = []
-    soma = 0
 
     while True:
         alunos = int(input('Alunos: '))
         if alunos in range(1, 41):
             quantidade_de_alunos.append(alunos)
-            soma += alunos
             if len(quantidade_de_alunos) == numero_de_turmas:
                 break
         else:
             mensagens_lista.append(
                 f'Uma turma deve ter de 1 a 40 alunos, não é possível ter {alunos} alunos')
 
+    soma = reduce(add, quantidade_de_alunos)
     media = int(soma / numero_de_turmas)
     mensagens_lista.append(f'Média de alunos por turma: {media}')
 
