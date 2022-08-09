@@ -73,4 +73,4 @@ def gerar_tabela_de_precos():
     total = valor_unitario * quantidade_de_itens
 
     print('Lojas Quase Dois - Tabela de preços')
-    print(f'{quantidade_de_itens} - R$ {total}')
+    print(f'{quantidade_de_itens} - R$ {total:.2f}')
