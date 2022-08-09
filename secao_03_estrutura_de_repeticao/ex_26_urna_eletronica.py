@@ -42,15 +42,9 @@ def calcular_votos(*votos):
         'rouba, mas faz': 0
     }
 
-    if len(votos) == 0:
-        print(f'Votantes: {len(votos)}')
-        for k, v in candidatos.items():
-            print(f'Votos no candidato {k}: {v}')
+    for voto in votos:
+        candidatos[voto] += 1
 
-    else:
-        for voto in votos:
-            candidatos[voto] += 1
-
-        print(f'Votantes: {len(votos)}')
-        for k, v in candidatos.items():
-            print(f'Votos no candidato {k}: {v}')
+    print(f'Votantes: {len(votos)}')
+    for k, v in candidatos.items():
+        print(f'Votos no candidato {k}: {v}')
