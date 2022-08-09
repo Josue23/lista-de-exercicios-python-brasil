@@ -1,3 +1,4 @@
+from random import randint
 """
 Exercício 30 da seção de estrutura sequencial da Python Brasil:
 https://wiki.python.org.br/EstruturaDeRepeticao
@@ -119,3 +120,11 @@ até 50 pães, a partir do preço do pão informado pelo usuário
 
 def gerar_tabela_de_precos(preco_por_pao: float):
     """Escreva aqui em baixo a sua solução"""
+    quantidade_de_paes = randint(1, 50)
+    preco_por_pao = 1.99
+
+    total = quantidade_de_paes * preco_por_pao
+
+    print('Preço do pão: R$  1.99')
+    print('Panificadora Pão de Ontem - Tabela de preços')
+    print(f'{quantidade_de_paes} - R$ {total:.2f}')
