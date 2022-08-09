@@ -46,11 +46,12 @@ def calcular_estatisticas_colecao_de_cd():
     valores_de_cds = []
     (valores_de_cds := int(input('Valor do cd: '))
      for n in range(len(quantidade_de_cds)))
-    # for n in range(len(quantidade_de_cds)):
-    #     valores_de_cds.append(int(input('Valor do cd: ')))
 
     valor_total_da_colecao = reduce(add, valores_de_cds)
     custo_medio = valor_total_da_colecao / len(valores_de_cds)
+
     mensagens_lista.append(
         f'Valor total da coleção: R$ {valor_total_da_colecao:.2f}')
-    valor_total_da_colecao.append(f'Custo médio dos cds: R$ {custo_medio}')
+    mensagens_lista.append(f'Custo médio dos cds: R$ {custo_medio:.2f}')
+
+    [print(mensagem) for mensagem in mensagens_lista]
