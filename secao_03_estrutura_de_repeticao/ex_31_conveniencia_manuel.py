@@ -1,3 +1,5 @@
+from functools import reduce
+from operator import add
 """
 Exercício 31 da seção de estrutura sequencial da Python Brasil:
 https://wiki.python.org.br/EstruturaDeRepeticao
@@ -56,3 +58,26 @@ para registrar a próxima compra.
 
 def rodar_programa_de_caixa():
     """Escreva aqui em baixo a sua solução"""
+    compras_lista = []
+    compra_lista = []
+
+    while True:
+        item = float(input('Valor do item: '))
+        if item not in [-1, 0]:
+            compra_lista.append(item)
+        if item in [-1, 0]:
+            compras_lista.append(compra_lista)
+            total = reduce(add, compra_lista)
+            dinheiro = float(input('Dinheiro: '))
+            troco = dinheiro - total
+
+            print('Lojas Tabajara')
+            print(f'Total     : R$   {total:.2f}')
+            print('Dinheiro  : R$ ' + f'  {dinheiro:.2f}')
+            print(f'Troco     : R$   {troco:.2f}')
+            print('-------------------')
+
+            compra_lista.clear()
+            if item == -1:
+                print('Programa encerrado!')
+                break
