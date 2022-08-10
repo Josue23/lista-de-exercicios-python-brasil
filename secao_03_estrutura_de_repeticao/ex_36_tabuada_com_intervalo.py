@@ -37,5 +37,11 @@ Obs: Você deve verificar se o usuário não digitou o final menor que o inicial
 """
 
 
-def gerar_tabuada(n: int, de: int, ate: int):
+def gerar_tabuada(numero: int, limite_inferior: int, limite_superior: int):
     """Escreva aqui em baixo a sua solução"""
+    if limite_inferior > limite_superior:
+        print(
+            f'O limite final ({limite_superior}) deve ser maior que o inicial ({limite_inferior})')
+    else:
+        [print(f'{numero} X {limite_inferior} = {numero * limite_inferior}')
+         for limite_inferior in range(limite_inferior, limite_superior + 1)]
