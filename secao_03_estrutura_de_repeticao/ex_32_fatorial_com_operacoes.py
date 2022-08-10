@@ -1,3 +1,6 @@
+import re
+from functools import reduce
+from operator import mul
 """
 Exercício 32 da seção de estrutura sequencial da Python Brasil:
 https://wiki.python.org.br/EstruturaDeRepeticao
@@ -26,3 +29,11 @@ Ex.: 5!=5.4.3.2.1=120
 
 def calcular_fatorial(n: int):
     """Escreva aqui em baixo a sua solução"""
+    intervalo = list(range(1, n + 1))  # [1, 2, 3, 4, 5]
+    fatorial = reduce(mul, intervalo)  # 120
+    fatores = [i for i in intervalo[::-1]]  # [5, 4, 3, 2, 1]
+
+    mensagem = f'{n}! = {fatores} = {fatorial}'  # 5! = [5, 4, 3, 2, 1] = 120
+    mensagem = re.sub(r'[\[\]]', '', mensagem)
+    mensagem = re.sub(', ', ' . ', mensagem)
+    print(mensagem)  # 5! = 5 . 4 . 3 . 2 . 1 = 120
