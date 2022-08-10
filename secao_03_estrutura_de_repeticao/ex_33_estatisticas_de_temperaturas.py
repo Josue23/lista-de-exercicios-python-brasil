@@ -20,5 +20,32 @@ Mostre a média com uma casa decimal.
 """
 
 
+def calcular_maior(temperatura, maior):
+    if temperatura > maior:
+        maior = temperatura
+    return maior
+
+
+def calcular_menor(temperatura, menor):
+    if temperatura < menor:
+        menor = temperatura
+    return menor
+
+
+def calcular_media(temperaturas):
+    return sum(temperaturas) / len(temperaturas)
+
+
 def calcular_estatisticas(*temperaturas) -> str:
     """Escreva aqui em baixo a sua solução"""
+    if len(temperaturas) == 0:
+        return 'Maior temperatura: não existe. Menor temperatura: não existe. Média: não existe'
+    else:
+        maior = temperaturas[0]
+        menor = temperaturas[0]
+        media = calcular_media(temperaturas)
+        for temperatura in temperaturas[1:]:
+            maior = calcular_maior(temperatura, maior)
+            menor = calcular_menor(temperatura, menor)
+
+    return f'Maior temperatura: {maior}. Menor temperatura: {menor}. Média: {media:.1f}'
