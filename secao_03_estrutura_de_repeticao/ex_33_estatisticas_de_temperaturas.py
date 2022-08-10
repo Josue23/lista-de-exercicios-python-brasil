@@ -1,3 +1,4 @@
+from operator import eq
 """
 Exercício 33 da seção de estrutura sequencial da Python Brasil:
 https://wiki.python.org.br/EstruturaDeRepeticao
@@ -38,7 +39,8 @@ def calcular_media(temperaturas):
 
 def calcular_estatisticas(*temperaturas) -> str:
     """Escreva aqui em baixo a sua solução"""
-    if len(temperaturas) == 0:
+    if eq(len(temperaturas, 0)):
+        # if len(temperaturas) == 0:
         return 'Maior temperatura: não existe. Menor temperatura: não existe. Média: não existe'
     else:
         maior = temperaturas[0]
