@@ -60,7 +60,6 @@ def rodar_programa_de_caixa():
     """Escreva aqui em baixo a sua solução"""
     compras_lista = []
     compra_lista = []
-
     while True:
         item = float(input('Valor do item: '))
         if item not in [-1, 0]:
