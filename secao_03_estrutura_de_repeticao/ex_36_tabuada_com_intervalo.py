@@ -43,5 +43,6 @@ def gerar_tabuada(numero: int, limite_inferior: int, limite_superior: int):
         print(
             f'O limite final ({limite_superior}) deve ser maior que o inicial ({limite_inferior})')
     else:
-        [print(f'{numero} X {limite_inferior} = {numero * limite_inferior}')
-         for limite_inferior in range(limite_inferior, limite_superior + 1)]
+        contador = limite_inferior
+        [print(f'{numero} X {contador} = {numero * contador}')
+         for contador in range(contador, limite_superior + 1)]
