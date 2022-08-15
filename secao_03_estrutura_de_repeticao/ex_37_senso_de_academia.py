@@ -55,4 +55,29 @@ da média das alturas e dos pesos dos clientes
 
 
 def rodar_senso():
+    __import__('ipdb').set_trace()
     """Escreva aqui em baixo a sua solução"""
+    clientes_lista = []
+    cliente_dict = {}
+    dados_cliente_lista = ['nome', 'altura', 'peso']
+
+    while not (dados_cliente_lista[0] == 0):
+        for dado in dados_cliente_lista:
+            cliente_dict[dado] = input(f'{dado}: '.capitalize())
+            # print(f'cliente_dict[dado]: {cliente_dict[dado]}')
+            # if '0' in cliente_dict[dado]:
+            if cliente_dict[dado] == '0':
+                break
+        clientes_lista.append(cliente_dict)
+        if cliente_dict[dado] == '0':
+            break
+
+    print(*cliente_dict.items())
+    print(*clientes_lista)
+
+    # print(f'Cliente mais alto: Renzo, com 162 centímetros')
+    # print(f'Cliente mais baixo: Renzo, com 162 centímetros')
+    # print(f'Cliente mais magro: Renzo, com 81 kilos')
+    # print(f'Cliente mais gordo: Renzo, com 81 kilos')
+
+    # pegar os dicionarios que estão numa lista
