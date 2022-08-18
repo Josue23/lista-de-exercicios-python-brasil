@@ -83,14 +83,17 @@ def rodar_senso():
         lista_de_alturas.append(dicionario['altura'])
         lista_de_pesos.append(dicionario['peso'])
 
+    # converte os itens da lista para inteiro
+    lista_de_alturas = [int(item) for item in lista_de_alturas]
+    lista_de_pesos = [int(item) for item in lista_de_pesos]
+
     mais_alto = max(lista_de_alturas)
     mais_baixo = min(lista_de_alturas)
 
     mais_magro = min(lista_de_pesos)
     mais_gordo = max(lista_de_pesos)
 
-    media_alturas = sum(lista_de_alturas)
-    # media_alturas = sum(lista_de_alturas) / len(lista_de_alturas)
+    media_alturas = sum(lista_de_alturas) / len(lista_de_alturas)
     media_pesos = sum(lista_de_pesos) / len(lista_de_pesos)
 
     print(f'Cliente mais alto: Gigante, com {int(mais_alto)} centímetros')
