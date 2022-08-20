@@ -26,5 +26,73 @@ Mostre os valores com uma casa decimail
 """
 
 
+def calcula_menor_indice(*cidades):
+    lista_de_indices = []
+    for cidade in cidades:
+        lista_de_indices.append(cidade[2] / cidade[1] * 1000)
+    lista_de_indices_sorted = sorted(lista_de_indices)
+    return lista_de_indices_sorted[0]
+
+
+def calcula_maior_indice(*cidades):
+    lista_de_indices = []
+    for cidade in cidades:
+        lista_de_indices.append(cidade[2] / cidade[1] * 1000)
+    lista_de_indices_sorted = sorted(lista_de_indices)
+    return lista_de_indices_sorted[-1]
+
+
+def mostra_cidade_menor_indice(*cidades, menor_indice):
+    for cidade in cidades:
+        if menor_indice == cidade[2] / cidade[1] * 1000:
+            nome_cidade_menor_indice = cidade[0]
+    return nome_cidade_menor_indice
+
+
+def mostra_cidade_maior_indice(*cidades, maior_indice):
+    for cidade in cidades:
+        if maior_indice == cidade[2] / cidade[1] * 1000:
+            nome_cidade_maior_indice = cidade[0]
+    return nome_cidade_maior_indice
+
+
+def calcula_media_veiculos(*cidades):
+    soma = 0
+    for cidade in cidades:
+        soma += cidade[1]
+    media = int(soma / len(cidades))
+    return media
+
+
+def calcula_media_acidentes(*cidades):
+    cidades_com_menos_de_150_000_carros = []
+    for cidade in cidades:
+        if cidade[1] <= 150_000:
+            cidades_com_menos_de_150_000_carros.append(cidade[2])
+    media = sum(cidades_com_menos_de_150_000_carros) / \
+        len(cidades_com_menos_de_150_000_carros)
+    return media
+
+
 def calcular_estatisticas(*cidades):
     """Escreva aqui em baixo a sua solução"""
+
+    menor_indice = calcula_menor_indice(*cidades)
+    nome_cidade_menor_indice = mostra_cidade_menor_indice(
+        *cidades, menor_indice=menor_indice)
+
+    maior_indice = calcula_maior_indice(*cidades)
+    nome_cidade_maior_indice = mostra_cidade_maior_indice(
+        *cidades, maior_indice=maior_indice)
+
+    media_veiculos_por_cidade = calcula_media_veiculos(*cidades)
+    media_acidentes = calcula_media_acidentes(*cidades)
+
+    print(
+        f'O maior índice de acidentes é de {nome_cidade_maior_indice}, com {maior_indice:.1f} acidentes por mil carros.')
+    print(
+        f'O menor índice de acidentes é de {nome_cidade_menor_indice}, com {menor_indice:.1f} acidentes por mil carros.')
+    print(
+        f'O média de veículos por cidade é de {media_veiculos_por_cidade}.')
+    print(
+        f'A média de acidentes total nas cidades com menos de 150 mil carros é de {media_acidentes:.1f} acidentes.')
