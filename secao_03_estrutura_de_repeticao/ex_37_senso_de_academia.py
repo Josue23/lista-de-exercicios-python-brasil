@@ -54,6 +54,34 @@ da média das alturas e dos pesos dos clientes
 """
 
 
+def mostra_cliente_mais_alto(lista_de_dicionarios_de_clientes, maior_altura):
+    for dicionario in lista_de_dicionarios_de_clientes:
+        if int(dicionario['altura']) == maior_altura:
+            cliente_mais_alto = dicionario['nome']
+            return cliente_mais_alto
+
+
+def mostra_cliente_mais_baixo(lista_de_dicionarios_de_clientes, menor_altura):
+    for dicionario in lista_de_dicionarios_de_clientes:
+        if int(dicionario['altura']) == menor_altura:
+            cliente_mais_baixo = dicionario['nome']
+            return cliente_mais_baixo
+
+
+def mostra_cliente_mais_magro(lista_de_dicionarios_de_clientes, menor_peso):
+    for dicionario in lista_de_dicionarios_de_clientes:
+        if int(dicionario['peso']) == menor_peso:
+            cliente_mais_magro = dicionario['nome']
+            return cliente_mais_magro
+
+
+def mostra_cliente_mais_gordo(lista_de_dicionarios_de_clientes, maior_peso):
+    for dicionario in lista_de_dicionarios_de_clientes:
+        if int(dicionario['peso']) == maior_peso:
+            cliente_mais_gordo = dicionario['nome']
+            return cliente_mais_gordo
+
+
 def rodar_senso():
     """Escreva aqui em baixo a sua solução"""
     lista_de_dicionarios_de_clientes = []
@@ -62,7 +90,7 @@ def rodar_senso():
     dados_cliente_lista = ['nome', 'altura', 'peso']
 
     dado = ''
-    while '0' not in dado:
+    while dado != '0':
         for count, dado in enumerate(dados_cliente_lista, start=1):
             cliente_lista.append(dado)
             dado = input(f'{dado}: '.capitalize())
@@ -87,19 +115,35 @@ def rodar_senso():
     lista_de_alturas = [int(item) for item in lista_de_alturas]
     lista_de_pesos = [int(item) for item in lista_de_pesos]
 
-    mais_alto = max(lista_de_alturas)
-    mais_baixo = min(lista_de_alturas)
+    maior_altura = max(lista_de_alturas)
+    menor_altura = min(lista_de_alturas)
 
-    mais_magro = min(lista_de_pesos)
-    mais_gordo = max(lista_de_pesos)
+    maior_peso = max(lista_de_pesos)
+    menor_peso = min(lista_de_pesos)
 
     media_alturas = sum(lista_de_alturas) / len(lista_de_alturas)
     media_pesos = sum(lista_de_pesos) / len(lista_de_pesos)
 
-    print(f'Cliente mais alto: Gigante, com {int(mais_alto)} centímetros')
-    print(f'Cliente mais baixo: Renzo, com {int(mais_baixo)} centímetros')
-    print(f'Cliente mais magro: Seco, com {int(mais_magro)} kilos')
-    print(f'Cliente mais gordo: Bolota, com {int(mais_gordo)} kilos')
+    cliente_mais_alto = mostra_cliente_mais_alto(
+        lista_de_dicionarios_de_clientes, maior_altura)
+
+    cliente_mais_baixo = mostra_cliente_mais_baixo(
+        lista_de_dicionarios_de_clientes, menor_altura)
+
+    cliente_mais_magro = mostra_cliente_mais_magro(
+        lista_de_dicionarios_de_clientes, menor_peso)
+
+    cliente_mais_gordo = mostra_cliente_mais_gordo(
+        lista_de_dicionarios_de_clientes, maior_peso)
+
+    print(
+        f'Cliente mais alto: {cliente_mais_alto}, com {int(maior_altura)} centímetros')
+    print(
+        f'Cliente mais baixo: {cliente_mais_baixo}, com {int(menor_altura)} centímetros')
+    print(
+        f'Cliente mais magro: {cliente_mais_magro}, com {int(menor_peso)} kilos')
+    print(
+        f'Cliente mais gordo: {cliente_mais_gordo}, com {int(maior_peso)} kilos')
     print('--------------------------------------------------')
     print(f'Media de altura dos clientes: {media_alturas:.1f} centímetros')
     print(f'Media de peso dos clientes: {media_pesos:.1f} kilos')
