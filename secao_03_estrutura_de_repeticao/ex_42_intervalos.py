@@ -1,3 +1,4 @@
+from random import randint
 """
 Exercício 42 da seção de estrutura sequencial da Python Brasil:
 https://wiki.python.org.br/EstruturaDeRepeticao
@@ -40,3 +41,26 @@ A entrada de dados deverá terminar quando for lido um número negativo.
 
 def listar_numeros_para_avaliacao():
     """Escreva aqui em baixo a sua solução"""
+    intervalo_0a25 = []
+    intervalo_26a50 = []
+    intervalo_51a75 = []
+    intervalo_76a100 = []
+
+    while True:
+        numero = randint(-100, 100)
+        if numero >= 0:
+            if numero in range(26):
+                intervalo_0a25.append(numero)
+            elif numero in range(26, 51):
+                intervalo_26a50.append(numero)
+            elif numero in range(51, 76):
+                intervalo_51a75.append(numero)
+            else:
+                intervalo_76a100.append(numero)
+        else:
+            break
+
+    print(f'{len(intervalo_0a25)} número(s) entre o intervalo de zero a 25')
+    print(f'{len(intervalo_26a50)} número(s) entre o intervalo de 26 a 50')
+    print(f'{len(intervalo_51a75)} número(s) entre o intervalo de 51 a 75')
+    print(f'{len(intervalo_76a100)} número(s) entre o intervalo de 76 a 100')
