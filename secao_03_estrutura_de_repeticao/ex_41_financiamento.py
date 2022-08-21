@@ -32,8 +32,12 @@ Quantidade de Parcelas  % de Juros sobre o valor inicial da dívida
 
 def gerar_dados_de_financiamente(valor_inicial: float):
     """Escreva aqui em baixo a sua solução"""
-    print('Valor da Dívida Valor dos Juros Quantidade de Parcelas  Valor da Parcela')
+    print('Valor da Dívida Valor dos Juros Quantidade de Parcelas  Valor da Parcela')  # cabeçalho
 
+    # valores iniciais
+    print(f'R$ {valor_inicial:.2f}      0%              1                       R${valor_inicial:>10.2f}')
+
+    # cria dict com as quantidades de parcelas e as respectivas taxas de juros
     parcelas_juros_dict = {
         1: 0,
         3: 10,
@@ -41,8 +45,11 @@ def gerar_dados_de_financiamente(valor_inicial: float):
         9: 20,
         12: 25,
     }
-    qtdes_parcelas = list(parcelas_juros_dict.keys())
+    qtdes_parcelas = list(parcelas_juros_dict.keys())  # [1, 3, 6, 9, 12]
+
     for qtde_parcelas in qtdes_parcelas[1:]:
         juros = parcelas_juros_dict[qtde_parcelas]
         valor_com_juros = valor_inicial + valor_inicial * juros / 100
-        print(f"R$ {valor_com_juros:.2f}      {juros}%              {qtde_parcelas}           R$   {valor_com_juros / qtde_parcelas:.2f}")
+        valor_da_parcela = valor_com_juros / qtde_parcelas
+        print(
+            f'R$ {valor_com_juros:.2f}      {juros}%             {qtde_parcelas:<24}R$    {valor_da_parcela:.2f}')
