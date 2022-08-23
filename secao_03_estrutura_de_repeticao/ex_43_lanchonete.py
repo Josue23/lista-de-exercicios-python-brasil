@@ -117,14 +117,16 @@ def fechar_conta(*itens):
     cardapio_tupla = (
         ('Cachorro Quente', '100', 1.20),
         ('Bauru Simples',   '101', 1.30),
-        ('Bauru com ovo',   '102', 1.50),
-        ('Hambúrguer',      '103', 1.20),
-        ('Cheeseburguer',   '104', 1.30),
+        ('Bauru com Ovo',   '102', 1.50),
+        ('Hamburger',      '103', 1.20),
+        ('Cheeseburger',   '104', 1.30),
         ('Refrigerante',    '105', 1.00),
     )
 
     mensagens_list = []
     itens_dict = {}
+    soma_quantidades = 0
+    soma_totais = 0
 
     for item in itens:
         quantidade = item[1]
@@ -136,6 +138,9 @@ def fechar_conta(*itens):
 
                 if codigo != itens_dict.get('codigo'):
                     itens_dict['quantidade'] = 0
+                else:
+                    soma_quantidades = 0
+                    soma_totais = 0
                 itens_dict['codigo'] = codigo
 
                 itens_dict['quantidade'] = itens_dict.get(
@@ -147,14 +152,19 @@ def fechar_conta(*itens):
 
                 itens_dict['total'] = itens_dict['quantidade'] * opcao[2]
                 total = itens_dict['total']
+                soma_quantidades += quantidade
+                soma_totais += total
 
-        mensagem = f"| {descricao_item}  | {codigo}    | {preco_unitario:.2f}                |          {quantidade} |       {total:.2f} |"
+        mensagem = f"| {descricao_item:<15}  | {codigo:.8}    | {preco_unitario:.2f}"\
+            + f"                |          {quantidade:>1} |       {total:.2f} |"
         for item in mensagens_list:
             if codigo in item:
                 mensagens_list.remove(item)
         mensagens_list.append(mensagem)
-        [print(mensagem) for mensagem in mensagens_list]
+    for mensagem in mensagens_list:
+        print(mensagem)
 
     print('|---------------------------------------------------------------------------|')
-    print('| Total Geral:                                    |          0 |       0.00 |')
+    print(
+        f'| Total Geral:                                    |{soma_quantidades:11} | {soma_totais:10.2f} |')
     print('-----------------------------------------------------------------------------')
