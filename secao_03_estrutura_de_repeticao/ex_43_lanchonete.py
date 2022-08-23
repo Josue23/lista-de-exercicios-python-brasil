@@ -109,3 +109,52 @@ comprados.
 
 def fechar_conta(*itens):
     """Escreva aqui em baixo a sua solução"""
+    print('_____________________________________________________________________________')
+    print('|                              RESUMO DA CONTA                              |')
+    print('|---------------------------------------------------------------------------|')
+    print('| Epecificação     | Código | Preço Unitário (R$) | Quantidade | Total (R$) |')
+
+    cardapio_tupla = (
+        ('Cachorro Quente', '100', 1.20),
+        ('Bauru Simples',   '101', 1.30),
+        ('Bauru com ovo',   '102', 1.50),
+        ('Hambúrguer',      '103', 1.20),
+        ('Cheeseburguer',   '104', 1.30),
+        ('Refrigerante',    '105', 1.00),
+    )
+
+    mensagens_list = []
+    itens_dict = {}
+
+    for item in itens:
+        quantidade = item[1]
+        codigo = item[0]
+        for opcao in cardapio_tupla:
+            if codigo == opcao[1]:
+                itens_dict['descricao_item'] = opcao[0]
+                descricao_item = itens_dict['descricao_item']
+
+                if codigo != itens_dict.get('codigo'):
+                    itens_dict['quantidade'] = 0
+                itens_dict['codigo'] = codigo
+
+                itens_dict['quantidade'] = itens_dict.get(
+                    'quantidade', 0) + quantidade
+                quantidade = itens_dict['quantidade']
+
+                itens_dict['preco_unitario'] = opcao[2]
+                preco_unitario = itens_dict['preco_unitario']
+
+                itens_dict['total'] = itens_dict['quantidade'] * opcao[2]
+                total = itens_dict['total']
+
+        mensagem = f"| {descricao_item}  | {codigo}    | {preco_unitario:.2f}                |          {quantidade} |       {total:.2f} |"
+        for item in mensagens_list:
+            if codigo in item:
+                mensagens_list.remove(item)
+        mensagens_list.append(mensagem)
+        [print(mensagem) for mensagem in mensagens_list]
+
+    print('|---------------------------------------------------------------------------|')
+    print('| Total Geral:                                    |          0 |       0.00 |')
+    print('-----------------------------------------------------------------------------')
