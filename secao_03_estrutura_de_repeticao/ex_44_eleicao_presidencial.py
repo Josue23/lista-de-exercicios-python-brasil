@@ -90,3 +90,53 @@ from collections import Counter
 
 def apurar_votos(*votos):
     """Escreva aqui em baixo a sua solução"""
+    # Counter({'5': 7, '6': 7, '1': 1, '2': 1, '3': 1, '4': 1})
+    soma_votos = Counter(votos)
+
+    candidatos_nome_id_dict = {
+        'Bostonaro': 1,
+        'Luladrão': 2,
+        'Dilmanta': 3,
+        'FHC Isentão': 4,
+        'Votos Nulos': 5,
+        'Votos Brancos': 6,
+    }
+
+    soma_candidatos_votos_dict = {}
+
+    # popula dados no dict soma_candidatos_votos_dict
+    for k, v in soma_votos.items():
+        for nome, id in candidatos_nome_id_dict.items():
+            if int(k) == id:
+                soma_candidatos_votos_dict[nome] = v
+
+    total_votos = [int(el) for el in soma_candidatos_votos_dict.values()]
+    total_votos = sum(total_votos)
+
+    mensagens_list = []
+    print('Código do Candidato Nome do Candidato Votos Porcentagem sobre total')
+    for k, v in soma_votos.items():
+        for nome, id in candidatos_nome_id_dict.items():
+            nome_voto = soma_candidatos_votos_dict.get(nome, 0)
+            percento = (100 / total_votos * nome_voto)
+            #tamanho_str = len(str(percento))
+            tamanho_str = len(str(f'{percento:.1f}'))
+            #tamanho_str = f'{tamanho_str:.1f}'
+            # for i in range(3, 6):
+            if nome == 'Votos Nulos':
+
+                mensagens_list.append(
+                    '-------------------------------------------------------------------')
+            if tamanho_str == 3:
+                mensagens_list.append(
+                    f'{id:<19} {nome:<17} {nome_voto:<5}   {percento:<{tamanho_str}.1f}%')
+
+            elif tamanho_str == 4:
+                mensagens_list.append(
+                    f'{id:<19} {nome:<17} {nome_voto:<5}  {percento:<{tamanho_str}.1f}%')
+            else:
+                mensagens_list.append(
+                    f'{id:<19} {nome:<17} {nome_voto:<5} {percento:-{tamanho_str}.1f}%')
+        if id == 6:
+            break
+    [print(mensagem) for mensagem in mensagens_list]
