@@ -119,18 +119,15 @@ def apurar_votos(*votos):
         for nome, id in candidatos_nome_id_dict.items():
             nome_voto = soma_candidatos_votos_dict.get(nome, 0)
             percento = (100 / total_votos * nome_voto)
-            #tamanho_str = len(str(percento))
             tamanho_str = len(str(f'{percento:.1f}'))
-            #tamanho_str = f'{tamanho_str:.1f}'
-            # for i in range(3, 6):
             if nome == 'Votos Nulos':
-
                 mensagens_list.append(
                     '-------------------------------------------------------------------')
+                # Python’s String format() Cheat Sheet
+                # https://learnpython.com/blog/python-string-formatting/
             if tamanho_str == 3:
                 mensagens_list.append(
                     f'{id:<19} {nome:<17} {nome_voto:<5}   {percento:<{tamanho_str}.1f}%')
-
             elif tamanho_str == 4:
                 mensagens_list.append(
                     f'{id:<19} {nome:<17} {nome_voto:<5}  {percento:<{tamanho_str}.1f}%')
