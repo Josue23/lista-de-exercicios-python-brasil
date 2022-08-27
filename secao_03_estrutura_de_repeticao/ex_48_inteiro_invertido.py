@@ -21,3 +21,6 @@ Exemplo:
 
 def inverter_inteiro(numero):
     """Escreva aqui em baixo a sua solução"""
+    numero = str(numero)  # converte o numero para string
+    numero_invertido = numero[::-1]  # inverte a string
+    print(numero_invertido)
