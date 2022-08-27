@@ -49,3 +49,46 @@ Gabarito da Prova:
 
 def corrigir(*provas):
     """Escreva aqui em baixo a sua solução"""
+    gabarito_tuplas = (
+        ('01', 'A',),
+        ('02', 'B',),
+        ('03', 'C',),
+        ('04', 'D',),
+        ('05', 'E',),
+        ('06', 'E',),
+        ('07', 'D',),
+        ('08', 'C',),
+        ('09', 'B',),
+        ('10', 'A',),
+    )
+
+    nomes_list = []  # lista com nomes de alunos
+    medias_list = []  # lista com médias de alunos
+
+    for prova in provas:
+        nome = prova[0]
+        nomes_list.append(nome)
+        acertos = 0
+
+        # popula dados na  medias_list com as somas de acertos de cada aluno
+        for indice, resposta in enumerate(prova[1:]):
+            if resposta == gabarito_tuplas[indice][1]:
+                acertos += 1
+        medias_list.append(acertos)
+
+    # cria o alunos_notas_dict a partir das listas nomes_list e medias_list
+    alunos_notas_dict = dict(zip(nomes_list, medias_list))
+
+    media_geral = sum(medias_list) / len(provas)
+    maior_nota = max(medias_list)
+    menor_nota = min(medias_list)
+    total_alunos = len(provas)
+
+    print('Aluno                 Nota')
+    for k, v in alunos_notas_dict.items():
+        print(f'{k}                 {v}')
+    print('---------------------------')
+    print(f'Média geral: {media_geral:.1f}')
+    print(f'Maior nota: {maior_nota}')
+    print(f'Menor nota: {menor_nota}')
+    print(f'Total de Alunos: {total_alunos}')
