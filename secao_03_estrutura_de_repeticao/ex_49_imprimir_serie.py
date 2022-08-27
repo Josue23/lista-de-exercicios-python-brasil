@@ -3,11 +3,11 @@ Exercício 49 da seção de estrutura sequencial da Python Brasil:
 https://wiki.python.org.br/EstruturaDeRepeticao
 
 Faça um programa que mostre os n termos da Série a seguir:
-    
-    S = 1/1 + 2/3 + 3/5 + 4/7 + 5/9 + ... + n/m. 
-    
+
+    S = 1/1 + 2/3 + 3/5 + 4/7 + 5/9 + ... + n/m.
+
     Imprima no final a soma da série.
-    
+
     ----------------------------------
     | EXEMPLO                         |
     ----------------------------------
@@ -17,7 +17,7 @@ Faça um programa que mostre os n termos da Série a seguir:
     | S = 1/1 + 2/3 + 3/5 + 4/7 + 5/9 |
     | soma = 3.393650793650793        |
     ----------------------------------
-    
+
 
     >>> imprimir_serie(5)
     S = 1/1 + 2/3 + 3/5 + 4/7 + 5/9
@@ -35,5 +35,24 @@ Faça um programa que mostre os n termos da Série a seguir:
 """
 
 
-def imprimir_serie(n):
+def imprimir_serie(n):  # 5
     """Escreva aqui em baixo a sua solução"""
+    dividendos_list = list(range(1, n + 1))  # [1, 2, 3, 4, 5]
+
+    divisor = 1
+    divisores_list = []
+    while len(divisores_list) < n:
+        divisores_list.append(divisor)
+        divisor += 2
+    # divisores_list [1, 3, 5, 7, 9]
+
+    s = ''
+    soma = 0
+    # popula dados nas variáveis s e soma a partir das listas dividendos_list e divisores_list
+    for x, y in zip(dividendos_list, divisores_list):
+        s += f'{x}/{y} + '
+        soma += x / y
+    s = s[:-3]  # '1/1 + 2/3 + 3/5 + 4/7 + 5/9'
+
+    print(f'S = {s}')  # S = 1/1 + 2/3 + 3/5 + 4/7 + 5/9
+    print(f'soma = {soma}')  # soma = 3.393650793650793
