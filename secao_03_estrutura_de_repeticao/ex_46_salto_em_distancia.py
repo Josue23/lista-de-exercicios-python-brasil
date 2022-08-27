@@ -48,3 +48,29 @@ Mostre os valores com uma casa decimal sem arredondar.
 
 def calcular_estatiscas_do_salto(nome, *saltos):
     """Escreva aqui em baixo a sua solução"""
+    ordem_de_saltos_tupla = ('Primeiro', 'Segundo',
+                             'Terceiro', 'Quarto', 'Quinto')
+    print(f'Atleta: {nome}')
+    print('---------------------------------')
+
+    # itera nas duas tuplas saltos e ordem_de_saltos_tupla para construir as mensagens
+    for indice, ordem in enumerate(ordem_de_saltos_tupla):
+        print(f'{ordem} Salto: {saltos[indice]:.1f} m')
+
+    print('---------------------------------')
+
+    saltos = sorted(saltos)
+    melhor_salto = saltos[-1]
+    pior_salto = saltos[0]
+
+    saltos = list(saltos)
+    media_saltos_validos = sum(saltos) / len(saltos)
+    saltos.pop()
+    saltos.pop(0)
+
+    print(f'Melhor salto:  {melhor_salto:.1f} m')
+    print(f'Pior salto: {pior_salto:.1f} m')
+    print(f'Média dos demais saltos: {media_saltos_validos:.1f} m')
+    print('---------------------------------')
+    print('Resultado final:')
+    print(f'João do Pulo: {media_saltos_validos:.1f} m')
