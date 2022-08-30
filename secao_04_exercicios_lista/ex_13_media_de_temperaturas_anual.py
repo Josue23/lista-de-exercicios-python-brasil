@@ -1,3 +1,4 @@
+from random import randint
 """
 Exercício 13 da seção de listas da Python Brasil:
 https://wiki.python.org.br/ExerciciosListas
@@ -46,4 +47,16 @@ e em que mês elas ocorreram (mostrar o mês por extenso: 1 – Janeiro, 2 – F
 
 def temperaturas_acima_da_media():
     """Escreva aqui sua solução: """
+    meses_lista = ['Janeiro;', 'Fevereiro:', 'Março:', 'Abril:', 'Maio:', 'Junho:',
+                   'Julho:', 'Agosto:', 'Setembro:', 'Outubro:', 'Novembro:', 'Dezembro:']
+    temperaturas_lista = [randint(0, 40) for mes in range(1, 13)]
+    print(f'meses_vs_temperaturas {temperaturas_lista}')
 
+    media_anual = sum(temperaturas_lista) / len(temperaturas_lista)
+    print(f'Média anual: {media_anual:.2f} Graus')
+
+    # concatena as duas listas meses_lista e temperaturas_lista e armazena na lista meses_temperaturas
+    meses_temperaturas = list(zip(meses_lista, temperaturas_lista))
+    for indice, temp in enumerate(meses_temperaturas, start=1):
+        if temp[1] > media_anual:
+            print(f'{indice:<2} - {temp[0]:<12} {temp[1]}')
