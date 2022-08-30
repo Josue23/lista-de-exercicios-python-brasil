@@ -1,3 +1,4 @@
+from random import randint
 """
 Exercício 18 da seção de listas da Python Brasil:
 https://wiki.python.org.br/ExerciciosListas
@@ -44,7 +45,40 @@ outro número. Após o final da votação, o programa deverá exibir:
 """
 
 
+def retorna_melhor_jogador(votos_dict, mais_votos):
+    for jogador, pontos in votos_dict.items():
+        if pontos == mais_votos:
+            return jogador
+
+
 def receber_votos(*voto):
     """Escreva aqui em baixo a sua solução"""
+    print('Enquete: Quem foi o melhor jogador?')
+    print('---------------------------------------------------------------')
+    votos_dict = {}
+    for v in voto:
+        print(f'Número do jogador (0=fim): {v}')
+        if v == 0:
+            break
+        elif v not in range(1, 24):
+            print('Informe um valor entre 1 e 23 ou 0 para sair!')
+            continue
+        votos_dict[v] = votos_dict.get(v, 0) + 1
 
+    soma = sum(votos_dict.values())
 
+    print('---------------------------------------------------------------')
+    print('Resultado da votação:')
+    print('---------------------------------------------------------------')
+    print(f'Foram computados {soma} votos.')
+    print('---------------------------------------------------------------')
+    print('Jogador Votos           %               ')
+
+    for k, v in votos_dict.items():
+        print(f'{k:<2}               {v}               {v / soma * 100:.1f}% ')
+
+    mais_votos = max(votos_dict.values())
+    melhor_jogador = retorna_melhor_jogador(votos_dict, mais_votos)
+
+    print(
+        f'O melhor jogador foi o número {melhor_jogador}, com {mais_votos} votos, correspondendo a {int(mais_votos / soma * 100)}% do total de votos.')
