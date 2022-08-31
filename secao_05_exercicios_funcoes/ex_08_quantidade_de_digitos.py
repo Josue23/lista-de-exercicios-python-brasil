@@ -1,3 +1,4 @@
+import re
 """
 Exercício 08 da seção de funções da Python Brasil:
 https://wiki.python.org.br/ExerciciosFuncoes
@@ -24,3 +25,11 @@ Faça uma função que informe a quantidade de dígitos de um determinado númer
 
 """
 
+
+def imprimir_qtde_digitos_do_inteiro(inteiros: int) -> str:
+    # ini_string = "123abcjw:, .@! eiw"
+    inteiros = str(inteiros)  # converte para str
+
+    # remove todos os caracteres que não são inteiros
+    result = re.sub('[^0-9]+', '', inteiros)
+    print(len(result))
