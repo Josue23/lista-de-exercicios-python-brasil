@@ -35,5 +35,25 @@ Mostre na tela:
 """
 
 
+def retorna_lado_que_caiu_mais_vezes(lancamentos_dict, mais_ocorrencias):
+    for lado, ocorrencias in lancamentos_dict.items():
+        if ocorrencias == mais_ocorrencias:
+            return lado
+
+
 def lancar_dados(*valor_lancamentos):
     """Escreva aqui em baixo a sua solução"""
+    print(f'O dado foi lançado {len(valor_lancamentos)} vezes')
+
+    lancamentos_dict = {}
+    for lancamento in range(1, len(set(valor_lancamentos)) + 1):
+        lancamentos_dict[lancamento] = valor_lancamentos.count(lancamento)
+        print(
+            f'O número {lancamento} caiu {valor_lancamentos.count(lancamento)} vezes')
+
+    mais_ocorrencias = max(lancamentos_dict.values())
+    lado_que_caiu_mais_vezes = retorna_lado_que_caiu_mais_vezes(
+        lancamentos_dict, mais_ocorrencias)
+
+    print(
+        f'O lado com o número {lado_que_caiu_mais_vezes} caiu mais vezes ({mais_ocorrencias} vezes)')
