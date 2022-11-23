@@ -24,11 +24,15 @@ Ex.: 5!=5.4.3.2.1=120
 def calcular_fatorial(n: int) -> int:
     """Escreva aqui em baixo a sua solução"""
     fatorial = 1
-
     numeros = list(range(2, n + 1))
-
     [fatorial := fatorial * numero for numero in numeros]
-    # for numero in numeros:
-    #     fatorial = fatorial * numero
 
     return fatorial
+
+
+def fatorial_com_recursividade(n):
+    if n == 0:
+        return 1
+    recurse = fatorial_com_recursividade(n - 1)
+    result = recurse * n
+    return result
