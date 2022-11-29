@@ -44,7 +44,7 @@ def investigar(telefonou: str, estava_no_local: str, mora_perto: str, devia: str
     respostas_dict['trabalhou'] = trabalhou
 
     contagem = Counter(respostas_dict.values())
-    respostas_positivas = contagem.get('Sim')
+    respostas_positivas = contagem.get('Sim', 0)
 
     mensagem_dict = {
         respostas_positivas < 2: 'Inocente',
