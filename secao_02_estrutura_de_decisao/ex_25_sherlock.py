@@ -43,9 +43,13 @@ def investigar(telefonou: str, estava_no_local: str, mora_perto: str, devia: str
     respostas_positivas = 0
     for key, value in respostas_dict.items():
         if value == 'Sim':
-            respostas_positivas += respostas_dict.get(value, 0) + 1
+            respostas_positivas += 1
 
-    mensagem = 'Assassino' if respostas_positivas == 5 else 'Cúmplice' if respostas_positivas > 2 \
-        else 'Suspeito' if respostas_positivas == 2 else 'Inocente'
+    mensagem_dict = {
+        respostas_positivas < 2: 'Inocente',
+        respostas_positivas == 2: 'Suspeito',
+        respostas_positivas > 2: 'Cúmplice',
+        respostas_positivas == 5: 'Assassino',
+    }
 
-    return mensagem
+    return mensagem_dict.get(True)
