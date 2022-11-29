@@ -31,6 +31,9 @@ Caso contrário, ele será classificado como "Inocente".
 """
 
 
+from collections import Counter
+
+
 def investigar(telefonou: str, estava_no_local: str, mora_perto: str, devia: str, trabalhou: str, ):
     """Escreva aqui em baixo a sua solução"""
     respostas_dict = {}
@@ -40,10 +43,8 @@ def investigar(telefonou: str, estava_no_local: str, mora_perto: str, devia: str
     respostas_dict['devia'] = devia
     respostas_dict['trabalhou'] = trabalhou
 
-    respostas_positivas = 0
-    for key, value in respostas_dict.items():
-        if value == 'Sim':
-            respostas_positivas += 1
+    contagem = Counter(respostas_dict.values())
+    respostas_positivas = contagem.get('Sim')
 
     mensagem_dict = {
         respostas_positivas < 2: 'Inocente',
